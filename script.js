@@ -110,7 +110,6 @@ function parseAmount(value) {
 
 function formatAmount(value) {
   if (!Number.isFinite(value)) return '';
-  const amount = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 }).format(value);
   return String(Number(value.toFixed(2))).replace('.', ',');
 }
 
