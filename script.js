@@ -224,9 +224,12 @@ document.querySelectorAll('.digit').forEach(button => {
       return;
     }
 
+    if (input.value == '' && (value == ',' || value == '.')) return
+
     if (input.value === '0' && value !== ',') {
       input.value = value;
     } else {
+
       input.value += value;
     }
 
