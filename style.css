@@ -1,0 +1,289 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #00b86b;
+  --text: #222;
+  --muted: #666;
+  --card: #fff;
+  --input: #f1f2f4;
+  --background: #e7e7e7;
+  --border: #ddd;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  gap: 60px;
+  padding: 30px;
+}
+
+.screen {
+  width: 346px;
+  min-height: 750px;
+  padding: 26px 15px 20px;
+  border: 1px solid #c9c9c9;
+  border-radius: 28px;
+  background: linear-gradient(#fff, #f7f8fa);
+  overflow: hidden;
+}
+
+.screen-header {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.screen-header h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.back-button {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  color: #222;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.currency-card {
+  margin-bottom: 13px;
+  padding: 12px;
+  border-radius: 17px;
+  background: var(--card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
+}
+
+.currency-info {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.currency-info strong {
+  display: block;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.currency-info span:not(.arrow) {
+  display: block;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.arrow {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.amount-input {
+  width: 100%;
+  height: 47px;
+  padding: 0 12px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  background: var(--input);
+  text-align: center;
+  font-size: 24px;
+  color: #222;
+  transition: border-color .15s, color .15s;
+}
+
+.amount-input.active {
+  color: var(--green);
+}
+
+.amount-input:focus {
+  border-color: rgba(0, 184, 107, .25);
+}
+
+.keypad {
+  margin-top: 32px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 7px;
+}
+
+.key {
+  height: 61px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .035);
+
+  font-size: 23px;
+  cursor: pointer;
+  color: #222;
+}
+
+
+.key.clear {
+  grid-column: span 3;
+}
+
+.key.delete {
+  grid-column: span 3;
+  color: var(--green);
+  font-size: 27px;
+}
+
+
+.key.digit {
+  grid-column: span 2;
+}
+
+
+.key.zero {
+  grid-column: span 4;
+}
+
+
+.key[data-value=","] {
+  grid-column: span 2;
+}
+
+
+
+.currency-screen {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.selector-header {
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.search-wrapper {
+  height: 44px;
+  border-bottom: 2px solid #999;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 1px 18px;
+}
+
+.search-icon {
+  color: #888;
+  font-size: 25px;
+  transform: rotate(-20deg);
+}
+
+.search-wrapper input {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px;
+}
+
+.search-clear {
+  border: 0;
+  background: transparent;
+  color: #888;
+  font-size: 23px;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.currency-list {
+  height: 560px;
+  overflow-y: auto;
+  padding-right: 0;
+}
+
+.currency-option {
+  min-height: 63px;
+  margin-bottom: 10px;
+  padding: 10px 13px;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .035);
+}
+
+.currency-option strong {
+  display: block;
+  font-size: 20px;
+}
+
+.currency-option span {
+  display: block;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.currency-option.selected .check {
+  color: var(--green);
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.check {
+  color: transparent;
+}
+.amount-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.amount-wrapper .amount-input {
+  width: 100%;
+  padding: 0 45px 0 12px;
+  text-align: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: inherit;
+  pointer-events: none;
+}
+
+.amount-input.active + .currency-symbol {
+  color: var(--green);
+}
+.empty-result {
+  text-align: center;
+  color: #888;
+  padding: 30px 10px;
+}
+
+

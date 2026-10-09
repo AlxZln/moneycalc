@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конвертер валют</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="app">
+    
+    <section class="screen" id="converterScreen">
+      <header class="screen-header">
+        <button class="back-button hidden" id="backFromConverter" aria-label="Назад">←</button>
+        <h1>Конвертер валют</h1>
+      </header>
+
+      <div class="currency-card" data-side="from">
+        <div class="currency-info" id="fromCurrencyButton">
+          <div>
+            <strong id="fromCode">RUB</strong>
+            <span id="fromName">Российский рубль</span>
+          </div>
+          <span class="arrow">›</span>
+        </div>
+        <div class="amount-wrapper">
+          <input class="amount-input active" id="fromAmount" inputmode="decimal" autocomplete="off" value="1"
+            aria-label="Сумма исходной валюты">
+          <span class="currency-symbol" id="fromSymbol">₽</span>
+        </div>
+      </div>
+
+      <div class="currency-card" data-side="to">
+        <div class="currency-info" id="toCurrencyButton">
+          <div>
+            <strong id="toCode">USD</strong>
+            <span id="toName">Доллар США</span>
+          </div>
+          <span class="arrow">›</span>
+        </div>
+        <div class="amount-wrapper">
+          <input class="amount-input" id="toAmount" inputmode="decimal" autocomplete="off" value="0,01"
+            aria-label="Сумма целевой валюты">
+          <span class="currency-symbol" id="toSymbol">$</span>
+        </div>
+      </div>
+
+      <div class="keypad">
+        <button class="key clear evenspan" id="clearButton">AC</button>
+        <button class="key delete evenspan" id="deleteButton" aria-label="Удалить последний символ">⌫</button>
+
+        <button class="key digit" data-value="7">7</button>
+        <button class="key digit" data-value="8">8</button>
+        <button class="key digit" data-value="9">9</button>
+
+        <button class="key digit" data-value="4">4</button>
+        <button class="key digit" data-value="5">5</button>
+        <button class="key digit" data-value="6">6</button>
+
+        <button class="key digit" data-value="1">1</button>
+        <button class="key digit" data-value="2">2</button>
+        <button class="key digit" data-value="3">3</button>
+
+        <button class="key digit zero" data-value="0">0</button>
+        <button class="key digit" data-value=",">,</button>
+      </div>
+    </section>
+
+
+    <section class="screen currency-screen hidden" id="currencyScreen">
+      <header class="screen-header selector-header">
+        <button class="back-button" id="backButton" aria-label="Назад">←</button>
+        <h1>Изменить валюту</h1>
+      </header>
+
+      <div class="search-wrapper">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Валюта..." autocomplete="off">
+
+      </div>
+
+      <div class="currency-list" id="currencyList"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
